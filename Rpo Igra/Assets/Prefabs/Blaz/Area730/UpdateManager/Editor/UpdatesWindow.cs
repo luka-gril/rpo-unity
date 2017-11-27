@@ -47,15 +47,14 @@ namespace Area730.UpdatesManager
         [MenuItem("Area730/Check updates")]
         private static void CheckUpdates()
         {
-            Debug.Log("[Area730] Started checking updates...");
-
-            www = new WWW(pluginDataUrl);
-            EditorApplication.update += CheckPlugins;
+            //Debug.Log("[Area730] Started checking updates...");
+            //www = new WWW(pluginDataUrl);
+            //EditorApplication.update += CheckPlugins;
         }
 
         private static void CheckPlugins()
         {
-            if (www.isDone)
+           /* if (www.isDone)
             {
                 EditorApplication.update -= CheckPlugins;
 
@@ -67,14 +66,14 @@ namespace Area730.UpdatesManager
 
                 CueckUpdates(www.text);
                 SetChecked();
-            }
+            }*/
         }
 
         
 
         private static void CueckUpdates(string serverData)
         {
-            Dictionary<string, PluginDesc> serverDescriptors    = ParseDescriptions(serverData);
+           /* Dictionary<string, PluginDesc> serverDescriptors    = ParseDescriptions(serverData);
             List<PluginDesc> localDescriptors                   = GetLocalDescriptors();
 
             List<PluginDesc> remoteForLocals = new List<PluginDesc>();
@@ -99,7 +98,7 @@ namespace Area730.UpdatesManager
 
             CheckRate(remoteForLocals);
 
-            UpdatesWindow.ShowWindow();
+            UpdatesWindow.ShowWindow();*/
         }
 
         private static bool HasChecked()
