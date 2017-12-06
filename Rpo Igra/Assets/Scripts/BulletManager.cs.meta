@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1acf60470ca20e04eaa5320105650a75
+timeCreated: 1512573549
+licenseType: Pro
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - explosionParticle: {fileID: 1019933986615764, guid: 82d3e2309bc7d594cafb0c38cc23cb08,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

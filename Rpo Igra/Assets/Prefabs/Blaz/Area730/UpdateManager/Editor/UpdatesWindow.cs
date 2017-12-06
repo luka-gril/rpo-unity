@@ -12,7 +12,7 @@ namespace Area730.UpdatesManager
     {
         private static readonly string pluginDescriptorFilename = "pluginInfo.json";
         private static readonly string LastTimeKey              = "last_check_time";
-        private static readonly string pluginDataUrl            = "https://www.dropbox.com/s/w8ef4h6nz5ermo7/pluginData.json?raw=1";
+        //private static readonly string pluginDataUrl            = "https://www.dropbox.com/s/w8ef4h6nz5ermo7/pluginData.json?raw=1";
 
         public static List<PluginDesc> pluginsToUpdate;
         private static WWW www;

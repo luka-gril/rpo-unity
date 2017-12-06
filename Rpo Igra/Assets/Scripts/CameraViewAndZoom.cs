@@ -10,28 +10,21 @@ public class CameraViewAndZoom : MonoBehaviour {
 
 
 	private void DetectKeyboardPresses(){
-		// POGLED
 		if (Input.GetKeyDown (KeyCode.C)) {
 			Vector3 trenutniPogled = gameObject.transform.localScale;
-			if (trenutniPogled.x == 0.4f) {
-				trenutniPogled.x = -0.4f;
-			} else {
-				trenutniPogled.x = 0.4f;
-			}
-
+			trenutniPogled.x = -trenutniPogled.x;
 			gameObject.transform.localScale = trenutniPogled;
 		}
-
-		// ZOOM
+			
 		if (Input.GetMouseButtonDown (1)) {
 			if (gameObject.GetComponent<Camera> ().fieldOfView == 80) {
 				gameObject.GetComponent<Camera> ().fieldOfView = 50;
-			}
-			else{
+			} else {
 				gameObject.GetComponent<Camera> ().fieldOfView = 80;
 
-		}
+			}
 
+		}
 	}
 
 
