@@ -21,6 +21,9 @@ public class BulletManager : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision){
 		InstantiateExplosion (explosionParticle);
+		if (collision.gameObject.tag.Equals ("Zombie")) {
+			collision.gameObject.GetComponent<ZombieHealth> ().LowerHealth (15f);
+		}
 		Destroy (gameObject);
 	}
 

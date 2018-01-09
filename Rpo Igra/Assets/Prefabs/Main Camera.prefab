@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 114637467854727784}
   - component: {fileID: 114982696144688164}
   - component: {fileID: 114642845371876954}
+  - component: {fileID: 114153695272988734}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -542,7 +543,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1119594139741202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.018, y: 0.5, z: 3.411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818723088246416}
@@ -1104,6 +1105,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114153695272988734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119594139741202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f78d04beb4d02c41ab5369580fd38b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthText: {fileID: 0}
 --- !u!114 &114390745143059774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1173,7 +1186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3990cbd607d1a242892a8c91606d8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mJumpForce: 30000
 --- !u!124 &124046457379850902
 Behaviour:
   m_ObjectHideFlags: 1

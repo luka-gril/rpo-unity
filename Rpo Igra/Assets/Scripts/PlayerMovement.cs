@@ -35,19 +35,6 @@ public class PlayerMovement : MonoBehaviour {
 			mPlayerRigidbody.MovePosition (mPlayerTransform.position + (movementVector * Time.deltaTime * mMovementSpeed));
 		}
 	}
-
-	void OnCollisionEnter(Collision collision){
-		if (collision.gameObject.CompareTag ("Environment")) {
-			mPlayerRigidbody.velocity = Vector3.zero;
-		}
-	}
-
-	void OnCollisionStay(Collision collision){
-		if (collision.gameObject.CompareTag ("Environment")) {
-			mPlayerRigidbody.velocity = Vector3.zero;
-		}
-	}
-
-
+		
 
 }

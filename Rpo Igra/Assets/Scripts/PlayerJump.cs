@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour {
 
-	private Rigidbody mPlayerRigidbody;
+	/*private Rigidbody mPlayerRigidbody;
 	[SerializeField]
 	private float mJumpForce;
 	private bool isInAir = false;
@@ -25,6 +25,6 @@ public class PlayerJump : MonoBehaviour {
 			mPlayerRigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ;
 			isInAir = false;
 		}
-	}
+	}*/
 
 }
