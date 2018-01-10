@@ -18,8 +18,10 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate () {
 		if (!Input.anyKey) {
 			mPlayerRigidbody.velocity = Vector3.zero;
+			GameObject.FindGameObjectWithTag ("Walking").GetComponent<AudioSource> ().volume = 0.0f;
 		} else {
 			Vector3 movementVector = Vector3.zero;
+			GameObject.FindGameObjectWithTag ("Walking").GetComponent<AudioSource> ().volume = 1.0f;
 			if (Input.GetKey (KeyCode.W)) {
 				movementVector += (mPlayerTransform.forward);
 			}

@@ -24,6 +24,10 @@ public class BulletManager : MonoBehaviour {
 		if (collision.gameObject.tag.Equals ("Zombie")) {
 			collision.gameObject.GetComponent<ZombieHealth> ().LowerHealth (15f);
 		}
+		if (collision.gameObject.tag.Equals ("StaticObject")) {
+			Debug.Log ("");
+			GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ().playingTime -= 3f;
+		}
 		Destroy (gameObject);
 	}
 

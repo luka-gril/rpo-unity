@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: da474d726060b8e429ab9cf255080fb4
+  - enabled: 1
+    path: Assets/Scenes/levelA.unity
+    guid: f563f130d312f4c45b2564a2ebd13129
+  - enabled: 1
+    path: Assets/Scenes/mapa-mala.unity
+    guid: 6db588cf3739b3b4aa4bc61932c6a184

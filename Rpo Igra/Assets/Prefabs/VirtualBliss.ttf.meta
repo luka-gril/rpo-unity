@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e7a87218f6a0b19498809c5d8ac5087b
+timeCreated: 1515595497
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Virtual Bliss
+  fontNames:
+  - Virtual Bliss
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

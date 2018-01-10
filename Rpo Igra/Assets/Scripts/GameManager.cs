@@ -7,61 +7,63 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 	[SerializeField]
-	private GameObject BotPrefab; // model za bote
+	private GameObject BotPrefab; 
 
-	public static bool GAME_RUNNING; // spremenljivka ki pove ali je igra v teku.    Statična zato ker bomo dostopali tudi iz ostalih skript (premikanje igralca, streljanje, ...)
-	private float playingTime = 0f;  // štopanje igralnega časa  - default vrednost ob zagonu igre je 0
+	public static bool GAME_RUNNING; 
+	public float playingTime = 0f;  
 
-	private float BotSpawnTime = 5f;  // vsake 4 sekunde se bo spawnal novi bot
-	private float BotTimer = 0f;  // timer, da vidimo kdaj minejo 4 sekunde 
-	private float SpawnedBots = 0;  // beležimo koliko botov je bilo spawnanih
-	private int BotsNumber = 3;
+	private float BotSpawnTime = 3f;  
+	private float BotTimer = 0f;  
+	private float SpawnedBots = 0;  
+	private int BotsNumber = 20;
 
-	private GameObject[] mBotSpawnPoints;  // array točk v mapi kjer se lahko spawnajo boti
-
-	[SerializeField]
-	private Text FpsText;
-	[SerializeField]
-	private Text ScoreText;
+	private GameObject[] mBotSpawnPoints;  
 
 	[SerializeField]
-	private GameObject GameCanvas;
+	private Text FpsText; 
 	[SerializeField]
-	private GameObject GameOverCanvas;
+	private Text ScoreText; 
+
 	[SerializeField]
-	private Text StateText;
+	private GameObject GameCanvas; 
 	[SerializeField]
-	private Text ResultText;
+	private GameObject GameOverCanvas; 
+	[SerializeField]
+	private Text StateText; 
+	[SerializeField]
+	private Text ResultText; 
 
 	void OnEnable(){ 
-		GameOverCanvas.SetActive (false);
+		GameOverCanvas.SetActive (false); 
 		mBotSpawnPoints = GameObject.FindGameObjectsWithTag ("ZombieSpawnPoint"); 
-		GAME_RUNNING = true; 
+		GAME_RUNNING = true;  
 	}
 
 	void Update(){
-		playingTime += Time.deltaTime; 
-		ScoreText.text = playingTime.ToString ();
-		FpsText.text = (1.0f / Time.deltaTime).ToString ();
+		if (GAME_RUNNING) {
+			playingTime += Time.deltaTime; 
+		}
+		ScoreText.text = ((int)playingTime).ToString (); 
+		FpsText.text = "FPS: " + ((int) (1.0f / Time.deltaTime)).ToString ();
 		BotTimer += Time.deltaTime; 
 
-		if ((BotTimer >= BotSpawnTime) && SpawnedBots < BotsNumber) { 
+		if ((BotTimer >= BotSpawnTime) && SpawnedBots < BotsNumber) {  
 			SpawnBot ();  
 		}
-		CheckWin ();
+		CheckWin (); 
 	}
 
-	private void SpawnBot(){
+	private void SpawnBot(){ 
 		int randomPosition = Random.Range (0, mBotSpawnPoints.Length);  
 		Instantiate (BotPrefab, mBotSpawnPoints [randomPosition].transform.position, Quaternion.identity); 
-		SpawnedBots++; 
+		SpawnedBots++; 	
 		BotTimer = 0f; 
 	}
 
-	public void CheckWin(){ 
+	public void CheckWin(){  
 		bool victoryCondition1 = GameObject.FindGameObjectsWithTag ("Zombie").Length == 0; 
 		bool victoryCondition2 = SpawnedBots == BotsNumber; 
-		if (victoryCondition1 && victoryCondition2) {
+		if (victoryCondition1 && victoryCondition2) { 
 			GameWon (); 
 		}
 	}
@@ -71,22 +73,22 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void GameOver(){
-		GAME_RUNNING = false;  // igra je nehala teči
-		GameCanvas.SetActive(false);
-		GameOverCanvas.SetActive (true);
+		GAME_RUNNING = false;  
+		GameCanvas.SetActive(false); 
+		GameOverCanvas.SetActive (true); 
 		StateText.text = "YOU LOST!";
 		ResultText.text = string.Empty;
-		StartCoroutine (BackToMenu ()); // začnemo funkcijo za izhod nazaj v meni 
+		StartCoroutine (BackToMenu ());
 	}
 
 	private void GameWon(){
-		GAME_RUNNING = false;  // igra je nehala teči
-		GameCanvas.SetActive(false);
-		GameOverCanvas.SetActive (true);
-		StateText.text = "YOU WON!";
-		ResultText.text = "Result: " + playingTime.ToString();
-		WriteResultToTextFile (); // Metoda kjer bomo zapisali rezultat v neko datoteko (še jo moramo naredit)
-		StartCoroutine (BackToMenu ()); // začnemo funkcijo za izhod nazaj v meni
+		GAME_RUNNING = false;  
+		GameCanvas.SetActive(false); 
+		GameOverCanvas.SetActive (true); 
+		StateText.text = "YOU WON!"; 
+		ResultText.text = "Result: " + ((int)playingTime).ToString(); 
+		WriteResultToTextFile (); 
+		StartCoroutine (BackToMenu ()); 
 	}
 
 	private void WriteResultToTextFile(){
@@ -94,8 +96,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private IEnumerator BackToMenu(){
-		yield return new WaitForSeconds (4); // počakamo 3 sekunde, da igralcu kaže Game Win ali Game Lost text 3 sekunde preden gre nazaj v meni
-		AsyncOperation async = SceneManager.LoadSceneAsync("Menu"); // naložimo meni in zapustimo trenutno sceno. Konec igre 
+		yield return new WaitForSeconds (3); 
+		AsyncOperation async = SceneManager.LoadSceneAsync("Menu"); 
 		while (!async.isDone) {
 			yield return null;
 		}
